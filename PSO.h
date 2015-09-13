@@ -2,6 +2,7 @@
 #define PSO_H_
 
 #include <iostream>
+#include <sys/time.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -9,6 +10,8 @@
 #include <signal.h>
 
 using namespace std;
+
+#define TIME
 
 /*パーティクルの構造体*/
 typedef struct {
