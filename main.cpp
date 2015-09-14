@@ -10,7 +10,7 @@ int main(void){
   gettimeofday(&start, NULL);  // 計測開始時間
   #endif
 
-  P = ExecPSO();
+  P = ExecPSO(-5,5);
 
   #ifdef TIME
   gettimeofday(&end, NULL);    // 計測終了時間

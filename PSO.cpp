@@ -27,14 +27,14 @@ void UpdateBest(Particle P){
 }
 
 /* それぞれのお魚さんの情報まとめ */
-int Initialize(Particle P, int n){
+int Initialize(Particle P, int n, double min, double max){
 	int i, j;
 	int G;//もっともよいお魚さんの個体値番号
 
 	G=0;
 	for(i=0; i<n; i++) {
 		for(j=0; j<Nvariables; j++){
-			P[i].x[j] = GetRandom(-5,5,6);//0から1の乱数発生
+			P[i].x[j] = GetRandom(min,max,6);//0から1の乱数発生
 			P[i].v[j] = 0.0;//速度は0
 		}
 		Evaluate(&P[i]);
@@ -84,14 +84,14 @@ void Print(Particle P){
 }
 
 
-Particle ExecPSO(){
+Particle ExecPSO(double min, double max){
 	int t, i, j;
 	Particle P;
 	int G;
 	double w;
 
 	P = NewParticles(Nparticles);
-	G = Initialize(P, Nparticles);
+	G = Initialize(P, Nparticles, min, max);
 	w=W_0;
 
 	for(t=1; t<=T_MAX; t++){

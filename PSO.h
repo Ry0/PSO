@@ -24,7 +24,7 @@ typedef struct {
 
 /* パラメータの定義 */
 //パーティクルの数
-#define Nparticles 10
+#define Nparticles 25
 //ループ回数
 #define T_MAX 100
 //慣性重み(以前の速度をどれだけ保持するのか) t=0 (W_0) t=T_MAX (W_T)
@@ -47,7 +47,7 @@ void Evaluate(Particle P);
 void UpdateBest(Particle P);
 
 /* それぞれのお魚さんの情報まとめ */
-int Initialize(Particle P, int n);
+int Initialize(Particle P, int n, double min, double max);
 
 /* 新しいデータ構造の割り当て */
 #define New(type, n, msg) (type *)NewCell(sizeof(type), n, msg)
@@ -60,6 +60,6 @@ Particle NewParticles(int n);
 void Print(Particle P);
 
 /* PSOの実行 */
-Particle ExecPSO();
+Particle ExecPSO(double min, double max);
 
 #endif
